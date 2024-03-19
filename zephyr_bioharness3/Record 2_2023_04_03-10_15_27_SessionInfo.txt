@@ -1,0 +1,24 @@
+Subject Information
+~~~~~~~~~~~~~~~~~~~
+Team: No Team Allocated
+Name: UNKNOWN
+Gender: UNKNOWN
+Birth Year: UNKNOWN
+ROG Act Min/Max : UNKNOWN
+ROG Resp Min/Max : UNKNOWN
+ROG HR Min/Max : UNKNOWN
+ROG O2R sec / sec : UNKNOWN
+
+Device Information
+~~~~~~~~~~~~~~~~~~
+Serial number: UNKNOWN
+MAC address: UNKNOWN
+Device Friendly Name: UNKNOWN
+
+Session Information
+~~~~~~~~~~~~~~~~~~~
+Log Format: 0003
+Log Date: Monday, 3 April 2023
+Log Time: 10:15:27 AM
+Log Duration: 00:15:47  (hh:mm:ss)
+Page Period(ms): 1000
