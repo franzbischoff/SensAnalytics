@@ -7,7 +7,6 @@ def create_df(a, b, x, y):
     return pd.DataFrame(np.array([a, b]).T, columns=[x, y])
 
 def get_data(FILE):
-    #FILE = '/Users/chirathhettiarachchi/Documents/PhD/RA_OHIOH/app/apple_watch/sample_export.xml'
     bpm, hr_time = [], []
     walk_double_support, walk_double_support_date = [], [] 
     running_vertical_oscillation, running_vertical_oscillation_date = [], [] 

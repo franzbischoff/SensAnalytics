@@ -40,19 +40,12 @@ select_event = st.sidebar.selectbox('Sensor',['-- select a sensor from menue --'
                                                 ,help="The system includes integrations for the following sensors.")
 
 if select_event == '-- select a sensor from menue --':
-    st.subheader('This page will act like a landing page, add overall information here. e.g., below')
     st.subheader('Step 1: Select Sensor')
-    st.markdown('Add explainer')
     st.subheader('Step 2: Select Analysis Type')
-    st.markdown('Add explainer')
     st.subheader('Step 3: Select Data Input Method')
-    st.markdown('CSV upload or connect via Bluetooth/USB, for cohort level analysis the default input will be CSV')
     st.subheader('Step 4: Preprocessing & Features')
-    st.markdown('Show the filters used, and present features available for analysis. ')
     st.subheader('Step 5: Visualisations')
-    st.markdown('Add explainer')
     st.subheader('Step 6: Analysis')
-    st.markdown('Add explainer')
 
 elif select_event == 'Balance Board (Bertec Force Plate)':
     st.subheader('Balance Board Analysis.')
@@ -235,6 +228,8 @@ elif select_event == 'Apple Watch 7':
     apple_watch_ecg = pd.read_csv(MAIN_PATH+'/apple_watch/ecg_sample.csv', skiprows=11)
     fig = px.line(apple_watch_ecg[0:1000]['Unit']) 
     st.plotly_chart(fig)
+
+    st.markdown("To plot other metrics captured by your apple watch, please add the apple watch export xml file to the apple_watch data folder. Sample data is only provided for the ECG shown above.")
 
     FILE = MAIN_PATH+'/apple_watch/sample_export.xml'
     apple_data_extract = apple_watch.get_data(FILE)
