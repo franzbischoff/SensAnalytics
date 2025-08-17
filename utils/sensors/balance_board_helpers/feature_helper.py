@@ -1,6 +1,6 @@
 from scipy.spatial import ConvexHull
 import numpy as np
-from scipy.integrate import simps
+from scipy.integrate import simpson
 from scipy import signal
 import antropy as ant
 import scipy.stats
@@ -370,12 +370,12 @@ def get_bandpowers(data,lower_band,upper_band, method=None, relative=False):
     
     idx_band_ML = np.logical_and(f_ML >= lower_band, f_ML <= upper_band)    # Find index of band in frequency vector
     idx_band_AP = np.logical_and(f_AP >= lower_band, f_AP <= upper_band)    # Find index of band in frequency vector
-    bp_ML = simps(psd_ML[idx_band_ML], dx=freq_res_ML)    # Integral approximation of the spectrum using parabola (Simpson's rule)
-    bp_AP = simps(psd_AP[idx_band_AP], dx=freq_res_AP)
+    bp_ML = simpson(psd_ML[idx_band_ML], dx=freq_res_ML)    # Integral approximation of the spectrum using parabola (Simpson's rule)
+    bp_AP = simpson(psd_AP[idx_band_AP], dx=freq_res_AP)
 
     if relative:
-        bp_ML /= simps(psd_ML, dx=freq_res_ML)
-        bp_AP /= simps(psd_AP, dx=freq_res_AP)
+        bp_ML /= simpson(psd_ML, dx=freq_res_ML)
+        bp_AP /= simpson(psd_AP, dx=freq_res_AP)
     
     return bp_ML, bp_AP
     
@@ -388,18 +388,18 @@ def get_edgefrequency(data, power_edge, method=None):
     freq_res_ML = f_ML[1] - f_ML[0]
     freq_res_AP = f_AP[1] - f_AP[0] #Should be the same as above, but just in case
         
-    tot_power_ML = simps(psd_ML, dx=freq_res_ML)
-    tot_power_AP = simps(psd_AP, dx=freq_res_AP)
+    tot_power_ML = simpson(psd_ML, dx=freq_res_ML)
+    tot_power_AP = simpson(psd_AP, dx=freq_res_AP)
 
     for i in range(len(psd_ML)):
-        band_power =  simps(psd_ML[:i+1], dx=freq_res_ML)
+        band_power =  simpson(psd_ML[:i+1], dx=freq_res_ML)
         power = band_power / tot_power_ML
         if power >= power_edge:
             edge_frequency_ML = f_ML[i]
             break
             
     for i in range(len(psd_ML)):
-        band_power =  simps(psd_AP[:i+1], dx=freq_res_AP)
+        band_power =  simpson(psd_AP[:i+1], dx=freq_res_AP)
         power = band_power / tot_power_AP
         if power >= power_edge:
             edge_frequency_AP = f_AP[i]

@@ -19,7 +19,7 @@ import matplotlib.animation as animation
 import matplotlib as mpl
 mpl.use("agg")
 from matplotlib.backends.backend_agg import RendererAgg
-_lock = RendererAgg.lock
+# _lock = RendererAgg.lock  # Removed in newer matplotlib versions
 
 # -- Set page config
 apptitle = 'SensAnalytics DEMO'
